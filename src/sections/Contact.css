@@ -1,0 +1,214 @@
+.cnt__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+  gap: clamp(16px, 2.4vw, 28px);
+  align-items: start;
+}
+
+.cnt__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cnt__card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  text-align: left;
+}
+
+.cnt__card--primary {
+  background: linear-gradient(135deg, var(--accent-soft), transparent 65%), var(--surface);
+  border-color: var(--glass-brd-strong);
+  flex-wrap: wrap;
+  transition: transform var(--t) var(--ease-out), box-shadow var(--t) var(--ease-out),
+    border-color var(--t) var(--ease);
+}
+
+.cnt__card--primary:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.cnt__icon {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--glass-brd);
+  transition: all var(--t) var(--ease);
+}
+
+.cnt__card:hover .cnt__icon {
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.cnt__icon--accent {
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+  border-color: transparent;
+  box-shadow: 0 8px 20px -8px var(--blue-glow);
+}
+
+.cnt__card:hover .cnt__icon--accent {
+  color: #fff;
+}
+
+.cnt__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cnt__label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.cnt__value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.cnt__value--big {
+  font-size: clamp(19px, 2.6vw, 25px);
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cnt__note {
+  font-size: 11px;
+  color: var(--text-3);
+  font-style: italic;
+}
+
+.cnt__action {
+  flex: none;
+  pointer-events: none;
+}
+
+.cnt__order {
+  margin-top: 4px;
+}
+
+/* ---- Map ---- */
+.cnt__map {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  min-height: 420px;
+  height: 100%;
+  display: grid;
+}
+
+.cnt__map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 0;
+  filter: grayscale(0.2);
+}
+
+.cnt__mapph {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+  background: radial-gradient(circle at 50% 42%, var(--bg-3), var(--bg-2) 72%);
+  overflow: hidden;
+}
+
+.cnt__mapgrid {
+  position: absolute;
+  inset: -10%;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at 50% 45%, #000 20%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 20%, transparent 72%);
+}
+
+.cnt__mapinner {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  max-width: 320px;
+}
+
+.cnt__mappin {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+  box-shadow: var(--shadow-blue);
+  animation: pinFloat 3.4s var(--ease) infinite alternate;
+}
+
+@keyframes pinFloat {
+  to {
+    transform: translateY(-7px);
+  }
+}
+
+.cnt__mapinner h3 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.cnt__mapinner p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-3);
+}
+
+@media (max-width: 900px) {
+  .cnt__layout {
+    grid-template-columns: 1fr;
+  }
+  .cnt__map,
+  .cnt__map iframe {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 560px) {
+  .cnt__card {
+    padding: 14px 15px;
+    gap: 12px;
+  }
+  .cnt__icon {
+    width: 38px;
+    height: 38px;
+  }
+  .cnt__card--primary .cnt__action {
+    width: 100%;
+    margin-top: 4px;
+  }
+  .cnt__value {
+    font-size: 14px;
+  }
+  .cnt__map,
+  .cnt__map iframe {
+    min-height: 240px;
+  }
+}

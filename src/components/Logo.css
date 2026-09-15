@@ -1,0 +1,79 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logo__mark {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: block;
+  filter: drop-shadow(0 4px 14px rgba(10, 132, 255, 0.45));
+  transition: transform var(--t) var(--ease-out);
+}
+
+.logo:hover .logo__mark {
+  transform: translateY(-1px) rotate(-4deg) scale(1.05);
+}
+
+.logo__mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+
+.logo__name {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--heading);
+  white-space: nowrap;
+}
+
+.logo__sub {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-text);
+  white-space: nowrap;
+}
+
+.logo--compact .logo__mark {
+  width: 32px;
+  height: 32px;
+}
+
+.logo--compact .logo__name {
+  font-size: 15.5px;
+}
+
+.logo--compact .logo__sub {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+}
+
+@media (max-width: 400px) {
+  .logo {
+    gap: 9px;
+  }
+  .logo__mark {
+    width: 30px;
+    height: 30px;
+  }
+  .logo__name {
+    font-size: 15px;
+  }
+  .logo__sub {
+    font-size: 7.5px;
+    letter-spacing: 0.16em;
+  }
+}
