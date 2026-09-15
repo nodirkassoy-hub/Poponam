@@ -1,0 +1,137 @@
+.prods {
+  position: relative;
+}
+
+/* ---- Filter bar ---- */
+.prods__filters {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 18px;
+}
+
+.prods__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.prods__selects {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.prods__field {
+  min-width: 132px;
+}
+
+.prods__field .select {
+  min-height: 40px;
+  font-size: 13.5px;
+  padding-block: 8px;
+}
+
+.prods__reset {
+  height: 40px;
+}
+
+.prods__count {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  margin-bottom: 20px;
+  padding-inline: 4px;
+}
+
+.prods__count strong {
+  color: var(--accent-text);
+  font-weight: 800;
+}
+
+/* ---- Grid ---- */
+.prods__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+}
+
+@media (max-width: 1150px) {
+  .prods__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---- Empty ---- */
+.prods__empty {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: clamp(40px, 8vw, 72px) 24px;
+  border-radius: var(--radius-xl);
+}
+
+.prods__emptytitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.prods__emptyhint {
+  font-size: 13.5px;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+
+/* ============ Mobile ============ */
+@media (max-width: 760px) {
+  .prods__filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 14px;
+  }
+  .prods__cats {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin-inline: -14px;
+    padding-inline: 14px;
+    padding-bottom: 2px;
+  }
+  .prods__cats::-webkit-scrollbar {
+    display: none;
+  }
+  .prods__cats .chip {
+    flex: none;
+  }
+  .prods__selects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .prods__field {
+    min-width: 0;
+  }
+  .prods__reset {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .prods__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .prods__count {
+    margin-bottom: 16px;
+  }
+}

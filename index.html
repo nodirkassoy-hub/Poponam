@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#050608" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)" />
+
+    <title>PENAPLAST — EPS penaplast ishlab chiqarish zavodi</title>
+    <meta
+      name="description"
+      content="PENAPLAST ZAVODI — qurilish, issiqlik izolyatsiyasi va sanoat uchun sifatli EPS penaplast mahsulotlarini ishlab chiqaradi. Oq, qora va maydalangan penaplast. Tel: +998 99 513 22 22"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PENAPLAST — EPS penaplast ishlab chiqarish zavodi" />
+    <meta
+      property="og:description"
+      content="Sifatli penaplast. Ishonchli qurilish. Turli zichlik va qalinlikdagi EPS penaplast mahsulotlari."
+    />
+    <meta property="og:image" content="/images/product-white-eps.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/images/hero-factory.jpg" />
+
+    <script>
+      // FOUC oldini olish — mavzu darhol qo'llaniladi
+      (function () {
+        try {
+          var s = localStorage.getItem('penaplast-theme');
+          var t = s === 'light' || s === 'dark' ? s : 'dark';
+          document.documentElement.dataset.theme = t;
+          document.documentElement.style.colorScheme = t;
+          var l = localStorage.getItem('penaplast-lang');
+          if (l) document.documentElement.lang = l;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

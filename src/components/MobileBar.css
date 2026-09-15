@@ -1,0 +1,102 @@
+.mbar {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  z-index: 90;
+  display: none;
+  align-items: center;
+  gap: 7px;
+  padding: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(24px) saturate(185%);
+  backdrop-filter: blur(24px) saturate(185%);
+  border: 1px solid var(--glass-brd-strong);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(140%);
+  opacity: 0;
+  transition: transform 0.4s var(--ease-out), opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+
+.mbar.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mbar__call,
+.mbar__order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.mbar__call:active,
+.mbar__order:active,
+.mbar__icon:active {
+  transform: scale(0.96);
+}
+
+.mbar__call {
+  flex: 1;
+  min-width: 0;
+  padding-inline: 12px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--glass-brd);
+}
+
+.mbar__call span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mbar__order {
+  flex: 1.15;
+  min-width: 0;
+  padding-inline: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+  box-shadow: 0 8px 22px -8px var(--blue-glow);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mbar__icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--glass-brd);
+}
+
+@media (max-width: 640px) {
+  .mbar {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mbar {
+    transition: opacity 0.2s linear;
+    transform: none;
+  }
+  .mbar:not(.is-visible) {
+    display: none;
+  }
+}

@@ -1,0 +1,170 @@
+.pcard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.pcard__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-3);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.pcard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.75s var(--ease-out);
+}
+
+.pcard:hover .pcard__media img {
+  transform: scale(1.055);
+}
+
+.pcard__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--img-shade), transparent 42%);
+  pointer-events: none;
+}
+
+.pcard__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid var(--glass-brd);
+}
+
+.pcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  flex: 1;
+}
+
+.pcard__name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.pcard__desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pcard__selectors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pcard__selectors .select {
+  min-height: 42px;
+  font-size: 14px;
+}
+
+.pcard__specs {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 14px;
+  margin-top: auto;
+  border-top: 1px solid var(--hairline);
+}
+
+.pcard__specs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pcard__specs span {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.pcard__specs b {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.pcard__pricebox {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.pcard__price {
+  font-size: 30px !important;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--accent-text) !important;
+}
+
+.pcard__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.pcard__btn {
+  width: 100%;
+  padding-inline: 10px;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 480px) {
+  .pcard__body {
+    padding: 17px;
+    gap: 13px;
+  }
+  .pcard__name {
+    font-size: 17px;
+  }
+  .pcard__desc {
+    font-size: 13px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  .pcard__price {
+    font-size: 27px !important;
+  }
+  .pcard__actions {
+    grid-template-columns: 1fr;
+  }
+  .pcard__btn {
+    --btn-h: 44px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,267 @@
+.pdet {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+}
+
+/* ---- Visual side ---- */
+.pdet__visual {
+  position: relative;
+  background: radial-gradient(circle at 40% 30%, var(--bg-3), var(--bg-2) 75%);
+  border-right: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+}
+
+.pdet__tabs {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 4;
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid var(--glass-brd);
+}
+
+.pdet__tab {
+  padding: 6px 15px;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  transition: all var(--t-fast) var(--ease);
+}
+
+.pdet__tab:hover {
+  color: var(--text-2);
+}
+
+.pdet__tab.is-active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+  box-shadow: 0 4px 14px -5px var(--blue-glow);
+}
+
+.pdet__stage {
+  flex: 1;
+  position: relative;
+  display: grid;
+  min-height: 0;
+}
+
+.pdet__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeScale 0.45s var(--ease-out) both;
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+}
+
+.pdet__viewer {
+  border-radius: 0;
+  min-height: 340px;
+}
+
+/* ---- Info side ---- */
+.pdet__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(22px, 3vw, 34px);
+  padding-right: clamp(22px, 3vw, 34px);
+}
+
+.pdet__title {
+  font-size: clamp(23px, 3.4vw, 32px);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  padding-right: 40px;
+}
+
+.pdet__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+.pdet__selectors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Price strip */
+.pdet__price {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 15px 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--accent-soft), transparent 68%), var(--surface);
+}
+
+.pdet__pricecol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pdet__pricecol span {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.pdet__pricecol b {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.pdet__pricecol--main b {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  color: var(--accent-text);
+  line-height: 1;
+}
+
+/* Columns */
+.pdet__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding-top: 4px;
+  border-top: 1px solid var(--hairline);
+  padding-top: 18px;
+}
+
+.pdet__blocktitle {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 11px;
+}
+
+.pdet__uses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pdet__uses li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.45;
+}
+
+.pdet__uses svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--accent-text);
+}
+
+.pdet__tech {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.pdet__tech > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pdet__tech dt {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.pdet__tech dd {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.pdet__actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.pdet__actions a {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .pdet {
+    grid-template-columns: 1fr;
+  }
+  .pdet__visual {
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+    min-height: 0;
+  }
+  .pdet__stage {
+    aspect-ratio: 16 / 10;
+  }
+  .pdet__viewer {
+    min-height: 0;
+  }
+  .pdet__price {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .pdet__stage {
+    aspect-ratio: 4 / 3;
+  }
+  .pdet__selectors {
+    grid-template-columns: 1fr;
+  }
+  .pdet__cols {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .pdet__actions {
+    grid-template-columns: 1fr;
+  }
+  .pdet__actions a {
+    justify-content: center;
+  }
+  .pdet__title {
+    padding-right: 0;
+  }
+  .pdet__tabs {
+    top: 12px;
+    left: 12px;
+  }
+}
